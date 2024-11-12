@@ -6,9 +6,10 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:04:39 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/10/23 17:04:43 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:34:12 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_tolower(int c)

@@ -6,9 +6,10 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:42:14 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/10/27 21:42:20 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:13:24 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)

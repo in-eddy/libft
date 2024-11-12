@@ -8,18 +8,18 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libft.a
 
-$(NAME): $(OBJ)
-	ar crs $@ $^
-
-%.o:%.c
-	$(CC) $(FLAGS) -c $^ -o $@
-
 all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rs $@ $?
+
+%.o:%.c libft.h 
+	$(CC) $(FLAGS) -c $<  -o $@
 
 clean:
 	rm -rf $(OBJ)
+
 fclean: clean
 	rm -rf $(NAME)
-re: fclean all
 
-.PHONY: all clean fclean re 
+re: fclean all

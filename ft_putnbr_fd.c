@@ -6,9 +6,10 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 20:26:33 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/10/27 20:26:35 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/09 17:11:31 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)

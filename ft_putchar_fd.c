@@ -6,9 +6,10 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:40:03 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/10/27 22:40:07 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:13:12 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)

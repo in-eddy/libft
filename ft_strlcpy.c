@@ -6,12 +6,11 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:22:39 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/11/03 22:23:31 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/17 14:28:25 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <libc.h>
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

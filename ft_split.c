@@ -6,84 +6,99 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 18:04:59 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/11/12 18:27:34 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:05:20 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	countw(const char *str, char sep)
+static size_t	count_w(char const *s, char c)
 {
-	int	i;
-	int	count;
-	int	check;
+	size_t	i;
+	size_t	count;
 
-	i = 0;
 	count = 0;
-	check = 0;
-	while (str[i] != '\0')
+	i = 0;
+	while (s[i])
 	{
-		check = 0;
-		while (str[i] == sep)
+		while (s[i] == c && s[i])
 			i++;
-		while (str[i] && str[i] != sep)
+		if (s[i])
 		{
-			if (check == 0)
-			{
-				count++;
-				check = 1;
-			}
-			i++;
+			count++;
+			while (s[i] != c && s[i])
+				i++;
 		}
 	}
 	return (count);
 }
 
-char	*rmp(const char *s, char sep, int *w )
+static size_t	len_w(char const *s, char c)
 {
-	int		i;
-	int		l;
-	char	*d;
-	int		j;
+	size_t	i;
 
-	l = 0;
-	j = 0;
-	while (s[*w] && s[*w] == sep)
-		(*w)++;
-	i = *w;
-	while (s[*w] && s[*w] != sep)
-		(*w)++;
-	l = *w - i;
-	d = (char *)malloc(l + 1);
-	if (!d)
-		return (NULL);
-	while (s[i + j] && s[i + j] != sep)
+	i = 0;
+	while (*s && *s == c)
+		s++;
+	while (*s && *s != c)
 	{
-		d[j] = s[i + j];
-		j++;
+		s++;
+		i++;
 	}
-	d[j] = '\0';
-	return (d);
+	return (i);
+}
+
+static void	safe_free(char **arr, size_t i)
+{
+	size_t	n;
+
+	n = 0;
+	while (n < i)
+	{
+		free(arr[n]);
+		n++;
+	}
+	free(arr);
+}
+
+static char	**alluc(char **arr, char const *s, char c, size_t count)
+{
+	size_t	i;
+	size_t	wlen;
+	size_t	j;
+
+	wlen = 0;
+	i = 0;
+	while (i < count)
+	{
+		wlen = len_w(s, c);
+		arr[i] = (char *)malloc((wlen + 1) * sizeof(char));
+		if (arr[i] == NULL)
+		{
+			safe_free(arr, i);
+			return (NULL);
+		}
+		j = 0;
+		while (*s == c)
+			s++;
+		while (j < wlen)
+			arr[i][j++] = *(s++);
+		arr[i++][j] = '\0';
+	}
+	arr[i] = NULL;
+	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**p;
-	int		i;
-	int		word;
-	int		id;
+	size_t	count_words;
+	char	**arr;
 
-	word = countw(s, c);
-	i = 0;
-	id = 0;
-	p = (char **)malloc((word + 1) * sizeof(char *));
-	if (!p)
+	if (s == NULL)
 		return (NULL);
-	while (i < word)
-	{
-		p[i] = rmp(s, c, &id);
-		i++;
-	}
-	p[i] = NULL;
-	return (p);
+	count_words = count_w(s, c);
+	arr = (char **)malloc((count_words + 1) * sizeof(char *));
+	if (arr == NULL)
+		return (NULL);
+	return (alluc(arr, s, c, count_words));
 }

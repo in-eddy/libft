@@ -6,22 +6,18 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:14:17 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/10/26 18:43:14 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:27:30 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len;
-	int		i;
+	size_t		i;
 
 	i = 0;
-	len = 0;
 	while (s[i] != '\0')
-	{
-		len++;
 		i++;
-	}
-	return (len);
+	return (i);
 }

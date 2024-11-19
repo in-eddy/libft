@@ -6,7 +6,7 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:43:54 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/11/09 16:48:33 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:18:41 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*d;
 
 	i = 0;
-	j = ft_strlen(s1);
 	k = 0;
-	if (!set)
-		return ((char *)s1);
+	if (!set || !s1)
+		return (NULL);
+	j = ft_strlen(s1);
 	while (s1[i] != '\0' && check(s1[i], set) == 0)
 		i++;
 	while (j > 0 && check(s1[j - 1], set) == 0)

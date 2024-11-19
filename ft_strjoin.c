@@ -6,7 +6,7 @@
 /*   By: ieddaoud <ieddaoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:43:04 by ieddaoud          #+#    #+#             */
-/*   Updated: 2024/11/01 18:06:37 by ieddaoud         ###   ########.fr       */
+/*   Updated: 2024/11/19 00:08:52 by ieddaoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if (s1 == NULL && s2 != NULL)
-		return ((char *) s2);
-	if (s2 == NULL && s1 != NULL)
-		return ((char *) s1);
+	if (s1 == NULL)
+		return (ft_strdup(s2));
+	if (s2 == NULL)
+		return (ft_strdup(s1));
 	d = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!d)
 		return (NULL);
